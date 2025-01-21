@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/innohub-master/images/icon.jpg" type="image/svg+xml">
+  <title>Bento Layout</title>
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+  }
+  
+  /* Bento Container */
+  .bento-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 150px;
+    gap: 10px;
+    padding: 2rem;
+  }
+  
+  .grid-item {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .grid1 {
+    grid-column: span 6;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/1.jpg');
+  }
+  
+  .grid2 {
+    grid-column: span 3;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/2.jpg');
+  }
+  
+  .grid3 {
+    grid-column: span 3;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/3.jpg');
+  }
+  
+  .grid4 {
+    grid-column: span 4;
+    grid-row: span 3;
+    background-image: url('/innohub-master/images/4.jpg');
+  }
+  
+  .grid5 {
+    grid-column: span 8;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/5.jpg');
+  }
+  
+  .grid6 {
+    grid-column: span 5;
+    grid-row: span 1;
+    background-image: url('/innohub-master/images/6.jpg');
+  }
+  
+  .grid7 {
+    grid-column: span 3;
+    grid-row: span 4;
+    background-image: url('/innohub-master/images/7.jpg');
+  }
+  
+  .grid8 {
+    grid-column: span 9;
+    grid-row: span 3;
+    background-image: url('/innohub-master/images/8.jpg');
+  }
+
+  /* part 2 */
+  
+  .grid9 {
+    grid-column: span 6;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/9.jpg');
+  }
+  
+  .grid10 {
+    grid-column: span 3;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/10.jpg');
+  }
+  
+  .grid11 {
+    grid-column: span 3;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/11.jpg');
+  }
+  
+  .grid12 {
+    grid-column: span 4;
+    grid-row: span 3;
+    background-image: url('/innohub-master/images/12.jpg');
+  }
+  
+  .grid13 {
+    grid-column: span 8;
+    grid-row: span 2;
+    background-image: url('/innohub-master/images/15.jpg');
+  }
+  
+  .grid14 {
+    grid-column: span 5;
+    grid-row: span 1;
+    background-image: url('/innohub-master/images/14.jpg');
+  }
+  
+  .grid15 {
+    grid-column: span 3;
+    grid-row: span 4;
+    background-image: url('/innohub-master/images/13.jpg');
+  }
+  
+  .grid16 {
+    grid-column: span 9;
+    grid-row: span 3;
+    background-image: url('/innohub-master/images/16.jpg');
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    background: #222;
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .bento-container {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  
+    .grid1, .grid7 {
+      grid-column: span 6;
+    }
+  
+    .grid2, .grid3, .grid5, .grid6, .grid8, .grid9 {
+      grid-column: span 3;
+    }
+  
+    .grid10 {
+      grid-column: span 6;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bento-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .grid-item {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
+  }
+  
+  /* Hover and Animation Effects */
+  /* Bento Container and Items */
+  /* Hover and Animation Effects - Alternative */
+  .grid-item {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  .grid-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    transition: all 0.5s ease;
+  }
+  
+  .grid-item:hover::after {
+    left: 100%;
+  }
+  
+  .grid-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .grid-item img {
+    transition: transform 0.5s ease;
+  }
+  
+  .grid-item:hover img {
+    transform: scale(1.1) rotate(-2deg);
+  }
+  
+  /* Styling for the Plus Button in the Bento Layout */
+  .grid-plus {
+    grid-column: span 1; /* Mengisi satu kolom */
+    grid-row: span 1;    /* Mengisi satu baris */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff758c; /* Warna tombol */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%; /* Membuat tombol bulat */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .grid-plus:hover {
+    background-color: #ff5069; /* Warna saat hover */
+    transform: scale(1.1); /* Efek zoom saat hover */
+  }
+  
+  .grid-plus:active {
+    transform: scale(0.95); /* Efek saat ditekan */
+  }
+
+.btn-conteiner {
+  display: flex;
+  justify-content: center;
+  --color-text: #ffffff;
+  --color-background: #ff135a;
+  --color-outline: #ff145b80;
+  --color-shadow: #00000080;
+  align-items: center;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  padding: 5px 40px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: 1s;
+  border-radius: 100px;
+  box-shadow: 0 0 0.2em 0 var(--color-background);
+}
+
+.btn-content:hover, .btn-content:focus {
+  transition: 0.5s;
+  -webkit-animation: btn-content 1s;
+  animation: btn-content 1s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+  transition: 0.5s;
+  margin-right: 0px;
+  transform: scale(0.6);
+}
+
+.btn-content:hover .icon-arrow {
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+.icon-arrow {
+  width: 20px;
+  margin-left: 15px;
+  position: relative;
+  top: 6%;
+}
+  
+/* SVG */
+#arrow-icon-one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+#arrow-icon-two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.btn-content:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-content:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+  
+
+.jarak {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+</style>
+<header class="header" data-sr="fade-up">
+  <h1>Our Gallery</h1>
+  <p>Di Sini Bermulanya Cerita Kami Semua.</p>
+</header>
+
+<section class="bento-container">
+  <div class="grid-item grid1" data-sr="slide-left"></div>
+  <div class="grid-item grid2" data-sr="slide-up"></div>
+  <div class="grid-item grid3" data-sr="zoom-in"></div>
+  <div class="grid-item grid4" data-sr="fade"></div>
+  <div class="grid-item grid5" data-sr="slide-right"></div>
+  <div class="grid-item grid6" data-sr="slide-left"></div>
+  <div class="grid-item grid7" data-sr="zoom-in"></div>
+  <div class="grid-item grid8" data-sr="fade-up"></div>
+</section>
+
+<section class="bento-container">
+  <div class="grid-item grid9" data-sr="slide-left"></div>
+  <div class="grid-item grid10" data-sr="fade-up"></div>
+  <div class="grid-item grid11" data-sr="zoom-in"></div>
+  <div class="grid-item grid12" data-sr="slide-right"></div>
+  <div class="grid-item grid13" data-sr="fade"></div>
+  <div class="grid-item grid14" data-sr="slide-up"></div>
+  <div class="grid-item grid15" data-sr="zoom-in"></div>
+  <div class="grid-item grid16" data-sr="fade-up"></div>
+</section>
+  <!-- Button as a grid item -->
+
+  <div class="btn-conteiner jarak">
+    <a class="btn-content" href="index.html">
+      <span class="btn-title">Balek Lagi!</span>
+        <span class="icon-arrow">
+          <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path id="arrow-icon-one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+              <path id="arrow-icon-two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+              <path id="arrow-icon-three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
+            </g>
+          </svg>
+      </span> 
+    </a>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Bento Layout Gallery. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Floating Plus Button -->
+
+  <script>
+    // Tambahkan animasi untuk elemen
+    ScrollReveal().reveal('[data-sr="fade"]', { duration: 1500, opacity: 0 });
+    ScrollReveal().reveal('[data-sr="slide-left"]', { duration: 1500, distance: '50px', origin: 'left', opacity: 0 });
+    ScrollReveal().reveal('[data-sr="slide-right"]', { duration: 1500, distance: '50px', origin: 'bottom', opacity: 0 });
+    ScrollReveal().reveal('[data-sr="slide-up"]', { duration: 1500, distance: '50px', origin: 'bottom', opacity: 0 });
+    ScrollReveal().reveal('[data-sr="zoom-in"]', { duration: 1500, scale: 0.8, opacity: 0 });
+    ScrollReveal().reveal('[data-sr="fade-up"]', { duration: 1500, distance: '20px', origin: 'bottom', opacity: 0 });
+  </script>
+</body>
+</html>
